@@ -1,61 +1,51 @@
-export default function Footer() 
+import { IFooter } from "../data/types";
+
+export default function Footer({title, intro, email, rawphone, formattedPhone, socialLinks, letsTalk}: IFooter) 
 {
     return (
-        <footer className="s-footer h-dark-bg">
+        <footer id="footer" className="s-footer h-dark-bg">
             <div className="right-vert-line" />
                 <div className="row s-footer__main">
                     <div className="column large-6">
                         <div className="section-intro" data-aos="fade-up">
-                        <h3 className="subhead">Get In Touch</h3>
-                        <h1 className="display-1">
-                            Have an idea or a concept that really excite you? Let's turn that
-                            idea into reality. Shoot me a message.
-                        </h1>
+                            <h3 className="subhead">{title}</h3>
+                            <h1 className="display-1">
+                                {intro}
+                            </h1>
                         </div>
                         <div className="footer-email-us">
-                        <a href="mailto:#0" className="btn btn--primary h-full-width">
-                            Let's Talk
-                        </a>
+                            <a href={`mailto:${email}`} className="btn btn--primary h-full-width">
+                                {letsTalk}
+                            </a>
                         </div>
                     </div>
                     <div className="column large-5">
                         <div className="footer-contacts">
-                        <div className="footer-contact-block" data-aos="fade-up">
-                            <h5 className="footer-contact-block__header">Email</h5>
-                            <p className="footer-contact-block__content">
-                            <a href="mailto:#0">sayhello@ethos.com</a>
-                            </p>
-                        </div>
-                        <div className="footer-contact-block" data-aos="fade-up">
-                            <h5 className="footer-contact-block__header">Phone</h5>
-                            <p className="footer-contact-block__content">
-                            <a href="tel:+1975432345">+197 543 2345</a>
-                            </p>
-                        </div>
-                        <br />
-                        <div className="footer-contact-block" data-aos="fade-up">
-                            <h5 className="footer-contact-block__header">Social</h5>
-                            <ul className="footer-contact-block__list">
-                            <li>
-                                <a href="#0">Twitter</a>
-                            </li>
-                            <li>
-                                <a href="#0">Instagram</a>
-                            </li>
-                            <li>
-                                <a href="#0">Behance</a>
-                            </li>
-                            <li>
-                                <a href="#0">Dribbble</a>
-                            </li>
-                            </ul>
-                        </div>
+                            <div className="footer-contact-block" data-aos="fade-up">
+                                <h5 className="footer-contact-block__header">Email</h5>
+                                <p className="footer-contact-block__content">
+                                    <a href={`mailto:${email}`}>{email}</a>
+                                </p>
+                            </div>
+                            <div className="footer-contact-block" data-aos="fade-up">
+                                <h5 className="footer-contact-block__header">Phone</h5>
+                                <p className="footer-contact-block__content">
+                                    <a href={`tel:+${rawphone}`}>{formattedPhone}</a>
+                                </p>
+                            </div>
+                            <br />
+                            <div className="footer-contact-block" data-aos="fade-up">
+                                <h5 className="footer-contact-block__header">Social</h5>
+                                <ul className="footer-contact-block__list">
+                                    {socialLinks.map(({title, link}, i) => <li key={i}><a target="_blank" href={link}>{title}</a></li>)}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="row s-footer__bottom">
                     <div className="column large-full ss-copyright">
-                        <span>© Copyright Ethos 2019</span>
+                        <span>© Copyright Amine Kamal 2022</span>
                         <span>
                         Design by <a href="https://www.styleshout.com/">StyleShout</a>
                         </span>

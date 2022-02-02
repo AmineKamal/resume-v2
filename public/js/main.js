@@ -193,21 +193,21 @@ jQuery(document).ready(function($) {
         });
 
         // bind click event
-        $folioItems.each(function(i) {
+        // $folioItems.each(function(i) {
 
-            $(this).find('.folio-item__thumb-link').on('click', function(e) {
-                e.preventDefault();
-                let options = {
-                    index: i,
-                    showHideOpacity: true
-                }
+        //     $(this).find('.folio-item__thumb-link').on('click', function(e) {
+        //         e.preventDefault();
+        //         let options = {
+        //             index: i,
+        //             showHideOpacity: true
+        //         }
 
-                // initialize PhotoSwipe
-                let lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
-                lightBox.init();
-            });
+        //         // initialize PhotoSwipe
+        //         let lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+        //         lightBox.init();
+        //     });
 
-        });
+        // });
     };
 
 

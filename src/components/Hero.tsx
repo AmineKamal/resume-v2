@@ -1,32 +1,37 @@
-export default function Hero() 
+import { IHero } from "../data/types";
+
+const ALL_BACKGROUNDS = 
+[
+    "images/bg-1.jpg",
+    "images/bg-2.png",
+    "images/bg-3.jpg",
+    "images/bg-4.png",
+    "images/bg-5.jpg",
+] as const;
+
+function SocialLink({title, link}: IHero["socialLinks"][number], index: number) 
 {
     return (
-        <section id="hero" className="s-hero target-section" data-parallax="scroll" data-image-src="images/hero-bg-3000.jpg" data-natural-width={3000} data-natural-height={2000} data-position-y="center">
+        <li key={index}>
+            <a href={link} title={title} target="_blank">
+                {title}
+            </a>
+        </li>
+    );
+}
+
+export default function Hero({intro, socialLinks}: IHero) 
+{
+    const background = ALL_BACKGROUNDS[Math.floor(Math.random() * ALL_BACKGROUNDS.length)];
+
+    return (
+        <section id="hero" className="s-hero target-section" data-parallax="scroll" data-image-src={background} data-natural-width={3000} data-natural-height={2000} data-position-y="center">
             <div className="row hero-content">
                 <div className="column large-full">
-                <h1>
-                    Hello, I'm John Doe, <br />
-                    a frontend developer <br />
-                    &amp; designer currently <br />
-                    based somewhere.
-                </h1>
-                <ul className="hero-social">
-                    <li>
-                        <a href="#0" title="">
-                            Twitter
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#0" title="">
-                            Behance
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#0" title="">
-                            Dribbble
-                        </a>
-                    </li>
-                </ul>
+                    <h1 style={{whiteSpace: "pre-wrap"}}> {intro} </h1>
+                    <ul className="hero-social">
+                        {socialLinks.map(SocialLink)}
+                    </ul>
                 </div>
             </div>
             <div className="hero-scroll">

@@ -1,5 +1,35 @@
+import { SupportedLocale } from "../data/data";
+import { IHeader } from "../data/types";
 
-export default function Header() 
+type NavItemProps = IHeader["navItems"][number];
+function NavItem({title, href}: NavItemProps, index?: number) 
+{
+    return (
+        <li key={index}>
+            <a className="smoothscroll" href={href} title={title}>
+                {title}
+            </a>
+        </li>
+    );
+}
+
+type NavLocaleItemProps = { locale: SupportedLocale; setData: (locale: SupportedLocale) => void }
+function NavLocaleItem({setData, locale}: NavLocaleItemProps) 
+{
+    const targetLocal = locale === "EN" ? "FR" : "EN";
+    const toLocalAction = () => setData(targetLocal);
+
+    return (
+        <li>
+            <a title={targetLocal} onClick={toLocalAction} style={{cursor: "pointer"}} >
+                {targetLocal}
+            </a>
+        </li>
+    );
+}
+
+type HeaderProps = IHeader & NavLocaleItemProps;
+export default function Header({navItems, downloadButton, setData, locale}: HeaderProps) 
 {
     return (
         <header className="s-header">
@@ -11,35 +41,12 @@ export default function Header()
             <div className="header-content">
                 <nav className="row header-nav-wrap">
                     <ul className="header-nav">
-                    <li>
-                        <a className="smoothscroll" href="#hero" title="Intro">
-                        Home
-                        </a>
-                    </li>
-                    <li>
-                        <a className="smoothscroll" href="#about" title="About">
-                        About
-                        </a>
-                    </li>
-                    <li>
-                        <a className="smoothscroll" href="#services" title="Services">
-                        Services
-                        </a>
-                    </li>
-                    <li>
-                        <a className="smoothscroll" href="#portfolio" title="Works">
-                        Works
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mailto:#0" title="Contact us">
-                        Say Hello
-                        </a>
-                    </li>
+                        {navItems.map(NavItem)}
+                        <NavLocaleItem {...{setData, locale}} />
                     </ul>
                 </nav>
-                <a href="#0" className="btn btn--stroke btn--small">
-                    Download CV
+                <a href={`resumes/cv_${locale}.pdf`} target="_blank" download className="btn btn--stroke btn--small">
+                    {downloadButton}
                 </a>
             </div>
             <a className="header-menu-toggle" href="#0">
