@@ -1,31 +1,25 @@
 import { useState } from "react";
 import { toTuple } from "../utils";
-import { EN } from "./en";
-import { FR } from "./fr";
 import { IData } from "./types";
-
-const SUPPORTED_LOCALES = ["EN" , "FR"] as const;
-export type SupportedLocale = typeof SUPPORTED_LOCALES[number];
-
-const Data: { [K in SupportedLocale]: IData } = { EN, FR };
+import { SupportedLocale, SUPPORTED_LOCALES, Translation } from "./translation";
 
 function isSupportedLocale(locale: string): locale is SupportedLocale 
 {
     return SUPPORTED_LOCALES.includes(locale as SupportedLocale);
 }
 
-export function useData(defaultLocale: SupportedLocale) 
+export function useTranslation(defaultLocale: SupportedLocale) 
 {
     const hrefLocale = window.location.href.match(/lang=([^&]*)/)?.[1];
     const initialLocale = isSupportedLocale(hrefLocale!) ? hrefLocale : defaultLocale;
     const [locale, setLocale] = useState<SupportedLocale>(initialLocale);
-    const [data, setDataValue] = useState<IData>(Data[locale]);
+    const [data, setData] = useState<IData>(Translation.get(locale)!);
 
-    function setData(locale: SupportedLocale) 
+    function setDataWithLocale(locale: SupportedLocale) 
     {
         setLocale(locale);
-        setDataValue(Data[locale]);
+        setData(Translation.get(locale)!);
     }
 
-    return toTuple(data, locale, setData);
+    return toTuple(data, locale, setDataWithLocale);
 }

@@ -1,4 +1,4 @@
-import { IHero } from "../data/types";
+import { IHero } from "../translations/types";
 
 const ALL_BACKGROUNDS = 
 [

@@ -1,4 +1,4 @@
-import { IAbout } from "../data/types";
+import { IAbout } from "../translations/types";
 
 function Experience({company, position, timeFrame, description, highlights, technologies}: IAbout["experiences"][number], index: number) 
 {

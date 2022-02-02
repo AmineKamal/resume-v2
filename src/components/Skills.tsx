@@ -1,4 +1,4 @@
-import { ISkills } from "../data/types";
+import { ISkills } from "../translations/types";
 
 function IndividualSkill(skill: ISkills["skills"][number]["skills"][number], index: number) 
 {

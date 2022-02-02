@@ -1,4 +1,4 @@
-import { IProjects } from "../data/types";
+import { IProjects } from "../translations/types";
 
 type ProjectProps = IProjects["projects"][number] & 
 {

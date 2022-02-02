@@ -1,4 +1,4 @@
-import { IFooter } from "../data/types";
+import { IFooter } from "../translations/types";
 
 export default function Footer({title, intro, email, rawphone, formattedPhone, socialLinks, letsTalk}: IFooter) 
 {

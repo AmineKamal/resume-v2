@@ -1,5 +1,5 @@
-import { SupportedLocale } from "../data/data";
-import { IHeader } from "../data/types";
+import { SupportedLocale } from "../translations/translation";
+import { IHeader } from "../translations/types";
 
 type NavItemProps = IHeader["navItems"][number];
 function NavItem({title, href}: NavItemProps, index?: number) 

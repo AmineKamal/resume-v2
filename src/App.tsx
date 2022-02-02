@@ -7,10 +7,10 @@ import Projects from "./components/Projects";
 import Preloader from "./components/Preloader";
 import Skills from "./components/Skills";
 import Testimonials from "./components/Testimonials";
-import { useData } from "./data/data";
+import { useTranslation } from "./translations/hook";
 
 function App() {
-  const [data, locale, setData] = useData("EN");
+  const [data, locale, setData] = useTranslation("EN");
 
   return (
     <>

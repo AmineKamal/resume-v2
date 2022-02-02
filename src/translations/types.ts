@@ -45,10 +45,8 @@ export interface IProjects
     projects: Array<{ name: string; technologies: string[]; sourceCode: string; projectLink: string; image: string  }>;
 }
 
-export interface ITestimonials 
-{
-
-}
+// Not used yet
+export interface ITestimonials {}
 
 
 export interface IFooter 
