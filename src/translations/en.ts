@@ -1,5 +1,14 @@
 import { IData } from "./types";
 
+const Skill =
+{
+    Beginner: (name: string) => ({ name, percent: 30 }),
+    Intermediate: (name: string) => ({ name, percent: 60, percentText: "Intermediate" }),
+    Advanced: (name: string) => ({ name, percent: 75, percentText: "Advanced" }),
+    Excellent: (name: string) => ({ name, percent: 90, percentText: "Excellent" }),
+    Master: (name: string) => ({ name, percent: 100, percentText: "Master" }),
+};
+
 export const EN: IData = 
 {
     header: 
@@ -92,6 +101,12 @@ export const EN: IData =
                 highlights: [],
                 technologies: ["Python", "Selenium", "Ruby", "Ruby On Rails", "Linux"]
             },
+        ],
+        educationTitle: "Education",
+        education: 
+        [
+            { school: "Polytechnique Montréal", diploma: "BE, Software Engineering", timeFrame: "2016-2020"},
+            { school: "Montmorency College", diploma: "DEC, Natural Sciences", timeFrame: "2011-2013"}
         ]
     },
     skills: 
@@ -107,52 +122,54 @@ export const EN: IData =
                 category: "Programming Languages",
                 skills: 
                 [
-                    "Typescript",
-                    "Javascript",
-                    "Python",
-                    "Java",
-                    "C++"
+                    Skill.Excellent("Typescript"),
+                    Skill.Advanced("Javascript"),
+                    Skill.Intermediate("Python"),
+                    Skill.Intermediate("Java"),
+                    Skill.Intermediate("C++")
                 ]
             },
             {
                 category: "Frontend",
                 skills: 
                 [
-                    "Angular",
-                    "React",
-                    "HTML",
-                    "CSS"
+                    Skill.Intermediate("Ionic"),
+                    Skill.Intermediate("Electron"),
+                    Skill.Intermediate("Angular"),
+                    Skill.Intermediate("React"),
+                    Skill.Intermediate("HTML"),
+                    Skill.Intermediate("CSS")
                 ]
             },
             {
                 category: "Backend",
                 skills: 
                 [
-                    "Node JS",
-                    "Express",
-                    "Flask",
-                    "Serverless",
-                    "Chalice"
+                    Skill.Intermediate("NodeJs"),
+                    Skill.Intermediate("Express"),
+                    Skill.Intermediate("Flask"),
+                    Skill.Beginner("Serverless"),
+                    Skill.Beginner("Chalice")
                 ]
             },
             {
                 category: "CI/CD",
                 skills: 
                 [
-                    "Selenium",
-                    "Docker",
-                    "Github Actions",
-                    "AWS"
+                    Skill.Beginner("Puppeteer"),
+                    Skill.Beginner("Docker"),
+                    Skill.Beginner("Github Actions"),
+                    Skill.Beginner("AWS")
                 ]
             },
             {
                 category: "General Computer Science",
                 skills: 
                 [
-                    "Data Structures",
-                    "Algorithms",
-                    "Git",
-                    "Jira"
+                    Skill.Intermediate("Data Structures"),
+                    Skill.Intermediate("Algorithms"),
+                    Skill.Intermediate("Git"),
+                    Skill.Intermediate("Jira")
                 ]
             },
         ]
@@ -185,6 +202,13 @@ export const EN: IData =
                 projectLink: "https://aminekamal.github.io/resume/",
                 image: "images/bg-1.jpg",
                 technologies: ["Typescript", "React"]
+            },
+            {
+                name: "Equation Solver",
+                sourceCode: "https://github.com/AmineKamal/equation-solver",
+                projectLink: "https://aminekamal.github.io/equation-solver/",
+                image: "images/projects/equation-solver.jpg",
+                technologies: ["Typescript", "React", "Tesseract"]
             },
         ]
     },

@@ -1,14 +1,16 @@
-import { ISkills } from "../translations/types";
+import { ISkill, ISkills } from "../translations/types";
 
-function IndividualSkill(skill: ISkills["skills"][number]["skills"][number], index: number) 
+function IndividualSkill(skill: ISkill, index: number) 
 {
     return (typeof skill === "string" ?
         <li key={index}>
             <div className="progress" style={{background: "#FFFFFF"}}></div>
             <strong style={{color: "#FFFFFF"}}>{skill}</strong>
         </li> :
-        <li key={index}>
-            <div className={`progress percent${skill.percent}`} style={{background: "#FFFFFF"}}><span>{skill.percent}%</span></div>
+        <li key={index} style={{background: "#0d0d1b"}}>
+            <div className={`progress percent${skill.percent}`} style={{background: "#FFFFFF"}}>
+                { skill.percentText && <span style={{background: "#0d0d1b"}}> {skill.percentText} </span> }
+            </div>
             <strong style={{color: "#FFFFFF"}}>{skill.name}</strong>
         </li>
     );

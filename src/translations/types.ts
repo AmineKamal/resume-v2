@@ -10,6 +10,23 @@ export interface IHero
     socialLinks: Array<{ title: string, link: string }>;
 }
 
+export interface IExperience 
+{
+    company: string;
+    position: string;
+    timeFrame: string;
+    description: string;
+    highlights: string[];
+    technologies: string[];
+}
+
+export interface IEducation 
+{
+    school: string;
+    diploma: string;
+    timeFrame: string;
+}
+
 export interface IAbout 
 {
     subhead: string;
@@ -17,23 +34,23 @@ export interface IAbout
     profileTitle: string;
     profileText: string;
     experienceTitle: string;
-    experiences: Array< 
-    { 
-        company: string;
-        position: string;
-        timeFrame: string;
-        description: string;
-        highlights: string[];
-        technologies: string[];
-    }>;
+    experiences: IExperience[];
+    educationTitle: string;
+    education: IEducation[];
 }
 
+export type ISkill = string |
+{
+    name: string;
+    percent: number;
+    percentText?: string;
+}
 export interface ISkills
 {
     title: string;
     intro: string;
     description: string;
-    skills: Array<{ category: string; skills: Array<string | { name: string; percent?: number }>}>
+    skills: Array<{ category: string; skills: ISkill[]; }>
 }
 
 export interface IProjects 

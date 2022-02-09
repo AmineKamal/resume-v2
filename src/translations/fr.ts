@@ -1,5 +1,14 @@
 import { IData } from "./types";
 
+const Skill =
+{
+    Beginner: (name: string) => ({ name, percent: 30, percentText: "Débutant" }),
+    Intermediate: (name: string) => ({ name, percent: 60, percentText: "Intermédiaire" }),
+    Advanced: (name: string) => ({ name, percent: 75, percentText: "Avancé" }),
+    Excellent: (name: string) => ({ name, percent: 90, percentText: "Excellent" }),
+    Master: (name: string) => ({ name, percent: 100, percentText: "Maitre" }),
+};
+
 export const FR: IData = 
 {
     header: 
@@ -92,6 +101,12 @@ export const FR: IData =
                 highlights: [],
                 technologies: ["Python", "Selenium", "Ruby", "Ruby On Rails", "Linux"]
             },
+        ],
+        educationTitle: "Éducation",
+        education: 
+        [
+            { school: "Polytechnique Montréal", diploma: "B. Génie Logiciel", timeFrame: "2016-2020"},
+            { school: "Collège Montmorency", diploma: "DEC Sciences Naturelles", timeFrame: "2011-2013"}
         ]
     },
     skills: 
@@ -107,52 +122,54 @@ export const FR: IData =
                 category: "Langages de programmation",
                 skills: 
                 [
-                    "Typescript",
-                    "Javascript",
-                    "Python",
-                    "Java",
-                    "C++"
+                    Skill.Excellent("Typescript"),
+                    Skill.Advanced("Javascript"),
+                    Skill.Intermediate("Python"),
+                    Skill.Intermediate("Java"),
+                    Skill.Intermediate("C++")
                 ]
             },
             {
                 category: "Frontend",
                 skills: 
                 [
-                    "Angular",
-                    "React",
-                    "HTML",
-                    "CSS"
+                    Skill.Intermediate("Ionic"),
+                    Skill.Intermediate("Electron"),
+                    Skill.Intermediate("Angular"),
+                    Skill.Intermediate("React"),
+                    Skill.Intermediate("HTML"),
+                    Skill.Intermediate("CSS")
                 ]
             },
             {
                 category: "Backend",
                 skills: 
                 [
-                    "Node JS",
-                    "Express",
-                    "Flask",
-                    "Serverless",
-                    "Chalice"
+                    Skill.Intermediate("NodeJs"),
+                    Skill.Intermediate("Express"),
+                    Skill.Intermediate("Flask"),
+                    Skill.Beginner("Serverless"),
+                    Skill.Beginner("Chalice")
                 ]
             },
             {
                 category: "CI/CD",
                 skills: 
                 [
-                    "Selenium",
-                    "Docker",
-                    "Github Actions",
-                    "AWS"
+                    Skill.Beginner("Puppeteer"),
+                    Skill.Beginner("Docker"),
+                    Skill.Beginner("Github Actions"),
+                    Skill.Beginner("AWS")
                 ]
             },
             {
                 category: "Informatique Générale",
                 skills: 
                 [
-                    "Structures de données",
-                    "Algorithmes",
-                    "Git",
-                    "Jira"
+                    Skill.Intermediate("Structures de données"),
+                    Skill.Intermediate("Algorithmes"),
+                    Skill.Intermediate("Git"),
+                    Skill.Intermediate("Jira")
                 ]
             },
         ],
@@ -191,7 +208,7 @@ export const FR: IData =
     footer: 
     {
         title: "Entrer en contact",
-        intro: "Un projet pour moi ? Vous pensez que je serais un bon candidat pour votre équipe ? J'aimerais avoir de vos nouvelles, envoyez-moi un message.",
+        intro: "Un projet pour moi? Vous pensez que je serais un bon candidat pour votre équipe? J'aimerais avoir de vos nouvelles, envoyez-moi un message.",
         email: "m.amine.kamal@outlook.com",
         rawphone: "15146610893",
         formattedPhone: "+1(514)661-0893",

@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { toTuple } from "../utils";
 import { IData } from "./types";
-import { SupportedLocale, SUPPORTED_LOCALES, Translation } from "./translation";
-
-function isSupportedLocale(locale: string): locale is SupportedLocale 
-{
-    return SUPPORTED_LOCALES.includes(locale as SupportedLocale);
-}
+import { SupportedLocale, isSupportedLocale, Translation } from "./translation";
 
 export function useTranslation(defaultLocale: SupportedLocale) 
 {
