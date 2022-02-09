@@ -187,7 +187,7 @@ export const FR: IData =
                 sourceCode: "https://github.com/AmineKamal/workout-timer",
                 projectLink: "https://aminekamal.github.io/workout-timer",
                 image: "images/projects/workout.jpg",
-                technologies: ["Typescript", "Angular"]
+                technologies: ["Typescript", "Angular", "Ionic"]
             },
             {
                 name: "Simple HTML Scraper",
@@ -209,6 +209,20 @@ export const FR: IData =
                 projectLink: "https://aminekamal.github.io/equation-solver/",
                 image: "images/projects/equation-solver.jpg",
                 technologies: ["Typescript", "React", "Tesseract"]
+            },
+            {
+                name: "Data Structures & Algorithms",
+                sourceCode: "https://github.com/AmineKamal/ds-algo",
+                projectLink: "https://www.npmjs.com/package/@aminekamal/ds-algo",
+                image: "images/projects/ds-algo.jfif",
+                technologies: ["Typescript"]
+            },
+            {
+                name: "Macro Tracker",
+                sourceCode: "https://github.com/AmineKamal/calories-tracking",
+                projectLink: null,
+                image: "images/projects/macro.jpg",
+                technologies: ["Typescript", "React", "Python", "Flask", "Alexa"]
             },
         ]
     },

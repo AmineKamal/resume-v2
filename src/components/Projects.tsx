@@ -24,9 +24,18 @@ function Project({name, sourceCode, projectLink, technologies, image, projectLin
                         </ul>
                     </div>
                 </div>
-                <a href={projectLink} target="_blank" title={projectLinkButton} className="folio-item__project-link">
-                    {projectLinkButton}
-                </a>
+                {
+                    projectLink &&
+                    <a href={projectLink} target="_blank" title={projectLinkButton} className="folio-item__project-link">
+                        {projectLinkButton}
+                    </a>
+                }
+                {
+                    !projectLink &&
+                    <a style={{cursor: "pointer"}} onClick={() => alert("Project is still in progress!")} title={projectLinkButton} className="folio-item__project-link">
+                        {projectLinkButton}
+                    </a>
+                }
                 <a href={sourceCode} target="_blank" title={sourceCodeButton} className="folio-item__project-link" style= {{ left: "15rem" }}>
                     {sourceCodeButton}
                 </a>

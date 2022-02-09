@@ -59,7 +59,7 @@ export interface IProjects
     intro: string;
     projectLinkButton: string;
     sourceCodeButton: string;
-    projects: Array<{ name: string; technologies: string[]; sourceCode: string; projectLink: string; image: string  }>;
+    projects: Array<{ name: string; technologies: string[]; sourceCode: string; projectLink: string | null; image: string  }>;
 }
 
 // Not used yet
