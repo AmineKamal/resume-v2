@@ -198,10 +198,17 @@ export const FR: IData =
             },
             {
                 name: "Resume",
-                sourceCode: "https://github.com/AmineKamal/resume",
-                projectLink: "https://aminekamal.github.io/resume/",
+                sourceCode: "https://github.com/AmineKamal/resume-v2",
+                projectLink: "https://aminekamal.github.io/resume-v2/",
                 image: "images/bg-1.jpg",
                 technologies: ["Typescript", "React"]
+            },
+            {
+                name: "Equation Solver",
+                sourceCode: "https://github.com/AmineKamal/equation-solver",
+                projectLink: "https://aminekamal.github.io/equation-solver/",
+                image: "images/projects/equation-solver.jpg",
+                technologies: ["Typescript", "React", "Tesseract"]
             },
         ]
     },
