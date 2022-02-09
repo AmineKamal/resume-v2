@@ -2,11 +2,11 @@ import { IData } from "./types";
 
 const Skill =
 {
-    Beginner: (name: string) => ({ name, percent: 30, percentText: "Débutant" }),
-    Intermediate: (name: string) => ({ name, percent: 60, percentText: "Intermédiaire" }),
-    Advanced: (name: string) => ({ name, percent: 75, percentText: "Avancé" }),
-    Excellent: (name: string) => ({ name, percent: 90, percentText: "Excellent" }),
-    Master: (name: string) => ({ name, percent: 100, percentText: "Maitre" }),
+    Beginner: (name: string) => ({ name, percent: 30 }),
+    Intermediate: (name: string) => ({ name, percent: 60 }),
+    Advanced: (name: string) => ({ name, percent: 75 }),
+    Excellent: (name: string) => ({ name, percent: 90 }),
+    Master: (name: string) => ({ name, percent: 100 }),
 };
 
 export const FR: IData = 
