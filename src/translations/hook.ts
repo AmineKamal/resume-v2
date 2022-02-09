@@ -5,7 +5,7 @@ import { SupportedLocale, isSupportedLocale, Translation } from "./translation";
 
 export function useTranslation(defaultLocale: SupportedLocale) 
 {
-    const hrefLocale = window.location.href.match(/lang=([^&]*)/)?.[1];
+    const hrefLocale = window.location.href.match(/lang=([^&]*)/)?.[1].toUpperCase();
     const initialLocale = isSupportedLocale(hrefLocale!) ? hrefLocale : defaultLocale;
     const [locale, setLocale] = useState<SupportedLocale>(initialLocale);
     const [data, setData] = useState<IData>(Translation.get(locale)!);
