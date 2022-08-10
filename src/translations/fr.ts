@@ -46,9 +46,20 @@ export const FR: IData =
         experiences: 
         [
             {
+                company: "Zendesk",
+                position: "Développeur de logiciel",
+                timeFrame: "Avril 2022 - Présent",
+                description: `Développeur full stack`,
+                highlights: [],
+                technologies: 
+                [
+                    "Typescript", "React", "NodeJS"
+                ]
+            },
+            {
                 company: "SG Digital",
                 position: "Développeur de logiciels",
-                timeFrame: "Septembre 2020 - Présent",
+                timeFrame: "Septembre 2020 - Avril 2022",
                 description: `
                     En tant que développeur de jeux full stack, mon rôle est d'aider à créer et à lancer des jeux en utilisant un moteur de jeu 2D en Typescript pour le frontend et un backend alimenté par Java.`,
                 highlights: 
