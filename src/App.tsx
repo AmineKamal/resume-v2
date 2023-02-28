@@ -20,7 +20,13 @@ function App() {
                 className="section-intro"
                 data-num={"01"}
                 data-aos="fade-up"
-                style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)" }}
+                style={{
+                    width: "100%",
+                    height: "100vh",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
             >
                 <h1 className="display-1" style={{ color: "white" }}>
                     Unauthorized

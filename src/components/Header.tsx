@@ -2,8 +2,7 @@ import { SupportedLocale } from "../translations/translation";
 import { IHeader } from "../translations/types";
 
 type NavItemProps = IHeader["navItems"][number];
-function NavItem({title, href}: NavItemProps, index?: number) 
-{
+function NavItem({ title, href }: NavItemProps, index?: number) {
     return (
         <li key={index}>
             <a className="smoothscroll" href={href} title={title}>
@@ -13,15 +12,14 @@ function NavItem({title, href}: NavItemProps, index?: number)
     );
 }
 
-type NavLocaleItemProps = { locale: SupportedLocale; setData: (locale: SupportedLocale) => void }
-function NavLocaleItem({setData, locale}: NavLocaleItemProps) 
-{
+type NavLocaleItemProps = { locale: SupportedLocale; setData: (locale: SupportedLocale) => void };
+function NavLocaleItem({ setData, locale }: NavLocaleItemProps) {
     const targetLocal = locale === "EN" ? "FR" : "EN";
     const toLocalAction = () => setData(targetLocal);
 
     return (
         <li>
-            <a title={targetLocal} onClick={toLocalAction} style={{cursor: "pointer"}} >
+            <a title={targetLocal} onClick={toLocalAction} style={{ cursor: "pointer" }}>
                 {targetLocal}
             </a>
         </li>
@@ -29,8 +27,7 @@ function NavLocaleItem({setData, locale}: NavLocaleItemProps)
 }
 
 type HeaderProps = IHeader & NavLocaleItemProps;
-export default function Header({navItems, downloadButton, setData, locale}: HeaderProps) 
-{
+export default function Header({ navItems, downloadButton, setData, locale }: HeaderProps) {
     return (
         <header className="s-header">
             <div className="header-logo">
@@ -42,16 +39,16 @@ export default function Header({navItems, downloadButton, setData, locale}: Head
                 <nav className="row header-nav-wrap">
                     <ul className="header-nav">
                         {navItems.map(NavItem)}
-                        <NavLocaleItem {...{setData, locale}} />
+                        <NavLocaleItem {...{ setData, locale }} />
                     </ul>
                 </nav>
-                <a href={`resumes/cv_${locale}.pdf`} target="_blank" download className="btn btn--stroke btn--small">
+                {/* <a href={`resumes/cv_${locale}.pdf`} target="_blank" download className="btn btn--stroke btn--small">
                     {downloadButton}
-                </a>
+                </a> */}
             </div>
             <a className="header-menu-toggle" href="#0">
                 <span>Menu</span>
             </a>
         </header>
-  );
+    );
 }
