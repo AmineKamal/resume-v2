@@ -7,7 +7,7 @@ import Projects from "./components/Projects";
 import Preloader from "./components/Preloader";
 import Skills from "./components/Skills";
 import Testimonials from "./components/Testimonials";
-import { useTranslation } from "./translations/hook";
+import { useTranslation } from "./hooks/useTranslation";
 import { useAuth } from "./hooks/useAuth";
 
 function App() {
