@@ -4,8 +4,8 @@ import { sha512 } from "../utils";
 const HASH =
     "55ea29826863d6044c6dfb911445b1069f2eda789cea1af00b44fa588d7197805552b0d909654cafaf501466f1556c6eb52e324d3f1720e6455eacdc541e9672";
 
-async function checkPass() {
-    const pass = window.location.href.match(/pass=([^&]*)/)?.[1].toUpperCase();
+async function checkPass(pass?: string) {
+    pass = pass ?? window.location.href.match(/pass=([^&]*)/)?.[1].toUpperCase();
 
     if (!pass) {
         return false;
@@ -15,11 +15,15 @@ async function checkPass() {
 }
 
 export function useAuth() {
-    const [validPass, setValidPass] = useState(false);
+    const [isValidPass, setValidPass] = useState(true);
 
     useEffect(() => {
         checkPass().then(setValidPass);
     }, []);
 
-    return validPass;
+    function dispatchPass(pass: string) {
+        checkPass().then(setValidPass);
+    }
+
+    return { isValidPass, dispatchPass };
 }

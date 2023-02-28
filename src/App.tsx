@@ -12,10 +12,21 @@ import { useAuth } from "./hooks/useAuth";
 
 function App() {
     const [data, locale, setData] = useTranslation("EN");
-    const isValidPass = useAuth();
+    const { isValidPass } = useAuth();
 
     if (!isValidPass) {
-        return null;
+        return (
+            <div
+                className="section-intro"
+                data-num={"01"}
+                data-aos="fade-up"
+                style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)" }}
+            >
+                <h1 className="display-1" style={{ color: "white" }}>
+                    Unauthorized
+                </h1>
+            </div>
+        );
     }
 
     return (
