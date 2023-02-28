@@ -8,23 +8,29 @@ import Preloader from "./components/Preloader";
 import Skills from "./components/Skills";
 import Testimonials from "./components/Testimonials";
 import { useTranslation } from "./translations/hook";
+import { useAuth } from "./hooks/useAuth";
 
 function App() {
-  const [data, locale, setData] = useTranslation("EN");
+    const [data, locale, setData] = useTranslation("EN");
+    const isValidPass = useAuth();
 
-  return (
-    <>
-      <Preloader/>
-      <Header {...{...data.header, locale, setData}} />
-      <Hero {...data.hero}/>
-      <About {...data.about}/>
-      <Skills {...data.skills}/>
-      <Projects {...data.projects} />
-      {data.testimonials && <Testimonials/>}
-      <Footer {...data.footer}/>
-      <PhotoSwipe/>
-    </>
-  );
+    if (!isValidPass) {
+        return null;
+    }
+
+    return (
+        <>
+            <Preloader />
+            <Header {...{ ...data.header, locale, setData }} />
+            <Hero {...data.hero} />
+            <About {...data.about} />
+            <Skills {...data.skills} />
+            <Projects {...data.projects} />
+            {data.testimonials && <Testimonials />}
+            <Footer {...data.footer} />
+            <PhotoSwipe />
+        </>
+    );
 }
 
 export default App;
