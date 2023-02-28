@@ -17,9 +17,6 @@ function App() {
     if (!isValidPass) {
         return (
             <div
-                className="section-intro"
-                data-num={"01"}
-                data-aos="fade-up"
                 style={{
                     width: "100%",
                     height: "100vh",
