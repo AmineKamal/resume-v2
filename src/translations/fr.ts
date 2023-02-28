@@ -9,6 +9,9 @@ const Skill = {
 };
 
 export const FR: IData = {
+    warnings: {
+        unauthorized: "Non autorisé",
+    },
     header: {
         navItems: [
             { title: "Accueil", href: "#hero" },

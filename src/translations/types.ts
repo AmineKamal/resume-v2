@@ -1,17 +1,14 @@
-export interface IHeader 
-{
+export interface IHeader {
     navItems: Array<{ title: string; href: string }>;
     downloadButton: string;
 }
 
-export interface IHero 
-{
+export interface IHero {
     intro: string;
-    socialLinks: Array<{ title: string, link: string }>;
+    socialLinks: Array<{ title: string; link: string }>;
 }
 
-export interface IExperience 
-{
+export interface IExperience {
     company: string;
     position: string;
     timeFrame: string;
@@ -20,15 +17,13 @@ export interface IExperience
     technologies: string[];
 }
 
-export interface IEducation 
-{
+export interface IEducation {
     school: string;
     diploma: string;
     timeFrame: string;
 }
 
-export interface IAbout 
-{
+export interface IAbout {
     subhead: string;
     intro: string;
     profileTitle: string;
@@ -39,35 +34,38 @@ export interface IAbout
     education: IEducation[];
 }
 
-export type ISkill = string |
-{
-    name: string;
-    percent: number;
-    percentText?: string;
-}
-export interface ISkills
-{
+export type ISkill =
+    | string
+    | {
+          name: string;
+          percent: number;
+          percentText?: string;
+      };
+export interface ISkills {
     title: string;
     intro: string;
     description: string;
-    skills: Array<{ category: string; skills: ISkill[]; }>
+    skills: Array<{ category: string; skills: ISkill[] }>;
 }
 
-export interface IProjects 
-{
+export interface IProjects {
     title: string;
     intro: string;
     projectLinkButton: string;
     sourceCodeButton: string;
-    projects: Array<{ name: string; technologies: string[]; sourceCode: string; projectLink: string | null; image: string  }>;
+    projects: Array<{
+        name: string;
+        technologies: string[];
+        sourceCode: string;
+        projectLink: string | null;
+        image: string;
+    }>;
 }
 
 // Not used yet
 export interface ITestimonials {}
 
-
-export interface IFooter 
-{
+export interface IFooter {
     title: string;
     intro: string;
     email: string;
@@ -77,8 +75,12 @@ export interface IFooter
     socialLinks: IHero["socialLinks"];
 }
 
-export interface IData 
-{
+export interface IWarnings {
+    unauthorized: string;
+}
+
+export interface IData {
+    warnings: IWarnings;
     header: IHeader;
     hero: IHero;
     about: IAbout;

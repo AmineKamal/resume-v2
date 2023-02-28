@@ -26,7 +26,7 @@ function App() {
                 }}
             >
                 <h1 className="display-1" style={{ color: "white" }}>
-                    Unauthorized
+                    {data.warnings.unauthorized}
                 </h1>
             </div>
         );
